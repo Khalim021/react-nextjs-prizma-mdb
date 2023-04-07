@@ -1,9 +1,29 @@
+import Navbar from "@/components/Navbar";
+import { NextPageContext } from "next";
+import { getSession } from "next-auth/react";
 
+export async function getServerSideProps(context: NextPageContext) {
+  const session = await getSession(context);
+
+  if(!session) {
+    return {
+      redirect: {
+        destination: '/auth',
+        permanent: false,
+      }
+    }
+  }
+
+  return {
+    props: {}
+  }
+}
 
 export default function Home() {
+
   return (
-    <div>
-     <h2 className="text-red-700 font-bold underline underline-offset-4">Shadow clone jutsu</h2>
-    </div>
+    <>
+      <Navbar />
+    </>
   )
 }
