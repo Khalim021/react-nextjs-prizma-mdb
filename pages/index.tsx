@@ -1,6 +1,7 @@
 import AnimeList from "@/components/AnimeList";
 import Billboard from "@/components/Billboard";
 import Navbar from "@/components/Navbar";
+import useAnimeList from "@/hooks/useAnimeList";
 import { NextPageContext } from "next";
 import { getSession } from "next-auth/react";
 
@@ -22,13 +23,14 @@ export async function getServerSideProps(context: NextPageContext) {
 }
 
 export default function Home() {
+  const {data: animes = []} = useAnimeList()
 
   return (
     <>
       <Navbar />
       <Billboard />
       <div className="pb-40">
-        <AnimeList />
+        <AnimeList title="Trending Animes" data={animes} />
       </div>
     </>
   )

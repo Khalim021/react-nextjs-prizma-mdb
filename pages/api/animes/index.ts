@@ -9,7 +9,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
   try {
     await serverAuth(req)
-    const animes = prismadb.anime.findMany();
+    const animes = await prismadb.anime.findMany();
 
     return res.status(200).json(animes)
 
