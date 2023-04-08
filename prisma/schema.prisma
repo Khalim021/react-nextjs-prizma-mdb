@@ -65,10 +65,10 @@ model Anime {
   videoUrl String
   thumbnailUrl String
   genre String
-  rating Int
-  year String
-  quality String
-  duration String
+  rating String?
+  year String?
+  quality String?
+  duration String?
   season String?
 }
 
