@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiFillPlayCircle } from 'react-icons/ai'
+import LikeButton from './LikeButton';
 
 interface AnimeCardProps {
   data: Record<string, any>
@@ -23,6 +24,7 @@ const AnimeCard: React.FC<AnimeCardProps> = ({data}) => {
             onClick={() => {}}>
               <AiFillPlayCircle size={22} className='text-orange-700' />
             </div>
+            <LikeButton movieId={data?.id} />
           </div>
           <p className='text-yellow-500 font-semibold mt-4'>
             Year: <span className='text-white text-sm'>{data?.year}</span>
