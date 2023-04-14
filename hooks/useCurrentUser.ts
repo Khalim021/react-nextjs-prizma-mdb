@@ -1,8 +1,8 @@
-import useSWR from 'swr';
-import fetchData from '@/lib/fetchdata';
+import useSwr from 'swr';
+import dataFetcher from '@/lib/fetchdata';
 
 const useCurrentUser = () => {
-  const { data, error, isLoading, mutate} = useSWR('/api/currentUser', fetchData);
+  const { data, error, isLoading, mutate} = useSwr('/api/currentUser', dataFetcher);
 
   return {
     data,

@@ -21,7 +21,7 @@ const AnimeList: React.FC<AnimeListProps> = ({data, title}) => {
         </p>
         <div className='grid grid-cols-4 gap-2'>
           {data.map((anime) => (
-            <AnimeCard key={anime._id} data={anime} />
+            <AnimeCard data={anime} key={anime.id} />
           ))}
         </div>
       </div>

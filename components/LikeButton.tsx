@@ -22,9 +22,9 @@ const LikeButton: React.FC<LikeButtonProps> = ({movieId}) => {
     let response;
 
     if (isLiked) {
-      response = await axios.delete('/api/liked', { data: { movieId } });
+      response = await axios.delete('/api/interactions', { data: { movieId } });
     } else {
-      response = await axios.post('/api/liked', { movieId });
+      response = await axios.post('/api/interactions', { movieId });
     }
 
     const updatedFavoriteIds = response?.data?.favoriteIds;
